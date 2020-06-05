@@ -37,3 +37,37 @@ class SetTheoryHomework{
         }
     }
 }
+
+class Set{
+    int[] set, Universe;
+    int length;
+
+    Set(int[] set, int[] Universe){
+        this.set = set;
+        this.Universe = Universe;
+        length = set.length;
+    }
+
+    int[] complement(){
+        ArrayList <Integer> aux = new ArrayList <Integer> ();
+
+        for(int i : Universe){
+            if (!(has(i))) aux.add(i);
+        }
+        return aux.toArray();
+    }
+
+    boolean has(int e){
+        for (int i : set){
+            if (i == e) return true;
+        }
+        return false;
+    }
+
+    private boolean has(int e, int[] anonSet){
+        for (int i : anonSet){
+            if (i == e) return true;
+        }
+        return false;
+    }
+}
