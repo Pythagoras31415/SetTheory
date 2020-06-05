@@ -7,28 +7,7 @@ public class Set {
     Set(int[] set, int[] Universe){
         this.set = set;
         this.Universe = Universe;
-        length = set.length;
-    }
-
-    int[] complement(){
-        ArrayList <Integer> aux = new ArrayList <Integer> ();
-
-        for(int i : Universe){
-            if (!(has(i))) aux.add(i);
-        }
-        
-        int[] complement = new int[aux.size()];
-        for (int i = 0; i < complement.length; i++){
-            complement[i] = aux.get(i);
-        }
-        return complement;
-    }
-
-    boolean has(int e){
-        for (int i : set){
-            if (i == e) return true;
-        }
-        return false;
+        this.length = set.length;
     }
 
     private boolean has(int e, int[] otherSet){
@@ -38,7 +17,44 @@ public class Set {
         return false;
     }
 
-    int[] intersection(int[] anotherSet){
+    Set complement(){
+        ArrayList <Integer> aux = new ArrayList <Integer> ();
+        int[] complement;
+
+        for(int i : Universe){
+            if (!(has(i))) aux.add(i);
+        }
+        complement = new int[aux.size()];
+
+        for (int i = 0; i < complement.length; i++){
+            complement[i] = aux.get(i);
+        }
+        return new Set(complement, Universe);
+    }
+
+    Set subtract(Set a){
+        ArrayList <Integer> aux = new ArrayList <Integer> ();
+        int[] res;
+
+        for (int i : set){
+            if (!(has(i, a.set))) aux.add(i);
+        }
+        res = new int[aux.size()];
+
+        for(int i = 0; i < res.length; i++){
+            res[i] = aux.get(i);
+        }
+        return new Set(res, Universe);
+    }
+
+    boolean has(int e){
+        for (int i : set){
+            if (i == e) return true;
+        }
+        return false;
+    }
+
+    Set intersection(int[] anotherSet){
         int[] max, other, intersection;
         ArrayList <Integer> inter = new ArrayList <Integer> ();
 
@@ -60,6 +76,6 @@ public class Set {
         for (int i = 0; i < intersection.length; i++){
             intersection[i] = inter.get(i);
         }
-        return intersection;
+        return new Set(intersection, Universe);
     }
 }

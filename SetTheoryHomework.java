@@ -2,18 +2,18 @@ import java.util.*;
 
 class SetTheoryHomework{
     public static void main(String[] args) {
-        int[] S = new int[21];
+        int[] s = new int[21];
 
         for(int i = 0; i <= 20; i++){
-            S[i] = i;
+            s[i] = i;
         }
 
         int index = 0;
-        int[] A = new int[11];
+        int[] a = new int[11];
 
         for(int i = 2; i < 16; i++){
             if (i == 3 || i == 10 || i == 14) continue;
-            A[index] = i;
+            a[index] = i;
             index++;
         }
 
@@ -24,7 +24,6 @@ class SetTheoryHomework{
             B[index] = i;
             index ++;
         }
-        System.out.println(Arrays.toString(B));
 
         int[] C = new int[5];
         index = 1;
@@ -35,5 +34,8 @@ class SetTheoryHomework{
             C[index] = i;
             index++;
         }
+
+        Set A = new Set(a, s);
+        System.out.println(Arrays.toString(A.complement()));
     }
 }
