@@ -64,10 +64,29 @@ class Set{
         return false;
     }
 
-    private boolean has(int e, int[] anonSet){
-        for (int i : anonSet){
+    private boolean has(int e, int[] otherSet){
+        for (int i : otherSet){
             if (i == e) return true;
         }
         return false;
+    }
+
+    int[] intersection(int[] anotherSet){
+        int[] max, other;
+        ArrayList <Integer> inter = new ArrayList <Integer> ();
+
+        if (anotherSet.length >= set.length){ 
+            max = anotherSet;
+            other = set;
+        }
+        else {
+            max = set;
+            other = anotherSet;
+        }
+
+        for(int i : max){
+            if (has(i, other)) inter.add(i);
+        }
+        return inter.toArray();
     }
 }
