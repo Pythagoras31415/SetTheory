@@ -84,8 +84,8 @@ public class Set {
         int[] res;
 
         for (int i = 0; i < set.length; i++){
-            aux.add(set[i]);
-            aux.add(a.set[i]);
+            if (!(aux.contains(set[i]))) aux.add(set[i]);
+            if (!(aux.contains(a.set[i]))) aux.add(a.set[i]);
         }
         
         res = new int[aux.size()];

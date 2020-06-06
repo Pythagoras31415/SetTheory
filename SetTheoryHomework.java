@@ -17,25 +17,33 @@ class SetTheoryHomework{
             index++;
         }
 
-        int[] B = new int[11];
+        int[] b = new int[11];
         index = 0;
 
         for(int i = 0; i <= 20; i += 2){
-            B[index] = i;
+            b[index] = i;
             index ++;
         }
 
-        int[] C = new int[5];
+        int[] c = new int[5];
         index = 1;
-        C[0] = 2;
+        c[0] = 2;
 
         for(int i = 3; i <= 11; i += 2){
             if (i == 9) continue;
-            C[index] = i;
+            c[index] = i;
             index++;
         }
 
         Set A = new Set(a, s);
-        System.out.println(Arrays.toString(A.complement().set));
+
+        Set B = new Set(b, s);
+
+        System.out.println("Dados los siguientes conjuntos: ");
+        System.out.println("A: " + Arrays.toString(A.set));
+        System.out.println("B: " + Arrays.toString(B.set));
+        System.out.println("C: " + Arrays.toString(C.set));
+        System.out.println("Y el conjunto universo: " + Arrays.toString(S.set));
+        System.out.println(Arrays.toString(A.complement().intersection(B.complement().set).set));
     }
 }
