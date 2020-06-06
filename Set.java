@@ -17,6 +17,13 @@ public class Set {
         return false;
     }
 
+    boolean has(int e){
+        for (int i : set){
+            if (i == e) return true;
+        }
+        return false;
+    }
+
     Set complement(){
         ArrayList <Integer> aux = new ArrayList <Integer> ();
         int[] complement;
@@ -47,13 +54,6 @@ public class Set {
         return new Set(res, Universe);
     }
 
-    boolean has(int e){
-        for (int i : set){
-            if (i == e) return true;
-        }
-        return false;
-    }
-
     Set intersection(int[] anotherSet){
         int[] max, other, intersection;
         ArrayList <Integer> inter = new ArrayList <Integer> ();
@@ -77,5 +77,24 @@ public class Set {
             intersection[i] = inter.get(i);
         }
         return new Set(intersection, Universe);
+    }
+
+    Set union(Set a){
+        ArrayList <Integer> aux = new ArrayList <Integer> ();
+        int[] res;
+
+        for (int i = 0; i < set.length; i++){
+            aux.add(set[i]);
+            aux.add(a.set[i]);
+        }
+        
+        res = new int[aux.size()];
+
+        for (int i = 0; i < aux.size(); i++){
+            res[i] = aux.get(i);
+        }
+
+        Arrays.sort(res);
+        return new Set(res, Universe);
     }
 }

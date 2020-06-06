@@ -36,6 +36,6 @@ class SetTheoryHomework{
         }
 
         Set A = new Set(a, s);
-        System.out.println(Arrays.toString(A.complement()));
+        System.out.println(Arrays.toString(A.complement().set));
     }
 }
