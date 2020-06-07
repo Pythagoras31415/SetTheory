@@ -54,17 +54,17 @@ public class Set {
         return new Set(res, Universe);
     }
 
-    Set intersection(int[] anotherSet){
+    Set intersection(Set anotherSet){
         int[] max, other, intersection;
         ArrayList <Integer> inter = new ArrayList <Integer> ();
 
         if (anotherSet.length >= set.length){ 
-            max = anotherSet;
+            max = anotherSet.set;
             other = set;
         }
         else {
             max = set;
-            other = anotherSet;
+            other = anotherSet.set;
         }
 
         for(int i : max){
@@ -85,7 +85,9 @@ public class Set {
 
         for (int i = 0; i < set.length; i++){
             if (!(aux.contains(set[i]))) aux.add(set[i]);
-            if (!(aux.contains(a.set[i]))) aux.add(a.set[i]);
+            if (i < a.set.length){
+                if (!(aux.contains(a.set[i]))) aux.add(a.set[i]);
+            }
         }
         
         res = new int[aux.size()];

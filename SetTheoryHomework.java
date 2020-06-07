@@ -36,14 +36,25 @@ class SetTheoryHomework{
         }
 
         Set A = new Set(a, s);
-
         Set B = new Set(b, s);
+        Set C = new Set(c, s);
+        Set S = new Set(s, s);
 
         System.out.println("Dados los siguientes conjuntos: ");
+        System.out.println("El conjunto universo: " + Arrays.toString(S.set));
         System.out.println("A: " + Arrays.toString(A.set));
         System.out.println("B: " + Arrays.toString(B.set));
         System.out.println("C: " + Arrays.toString(C.set));
-        System.out.println("Y el conjunto universo: " + Arrays.toString(S.set));
-        System.out.println(Arrays.toString(A.complement().intersection(B.complement().set).set));
+        System.out.println("Encontrar: \n");
+        System.out.println("1. Complemento de A intersección complemento de B");
+        System.out.println(Arrays.toString(A.complement().intersection(B.complement()).set) + "\n");
+        System.out.println("2. Intersección de los complementos de A y B, unión con C");
+        System.out.println(Arrays.toString(C.union(A.complement().intersection(B.complement())).set) + "\n");
+        System.out.println("3. A menos la intersección de B con C");
+        System.out.println(Arrays.toString(A.subtract(B.intersection(C)).set) + "\n");
+        System.out.println("4. El complemento de B menos C, menos A");
+        System.out.println(Arrays.toString(new Set(B.subtract(C).set, S.set).complement().subtract(A).set) + "\n");
+        System.out.println("5. El complemento de A menos C, intersección B");
+        System.out.println(Arrays.toString(new Set(A.subtract(C).set, S.set).complement().intersection(B).set) + "\n");
     }
 }
