@@ -58,5 +58,10 @@ class SetTheoryHomework{
         System.out.println(Arrays.toString(new Set(B.subtract(C).set, S.set).complement().subtract(A).set) + "\n");
         System.out.println("5. El complemento de A menos C, intersección B");
         System.out.println(Arrays.toString(new Set(A.subtract(C).set, S.set).complement().intersection(B).set) + "\n");
+        System.out.println("Verificar que A unión con la intersección del complemento de A con el conjunto B, sea igual a A unión B");
+        System.out.println("A unión con la intersección del complemento de A con el conjunto B:");
+        System.out.println(Arrays.toString(A.union(A.complement().intersection(B)).set) + "\n");
+        System.out.println("A unión con B");
+        System.out.println(Arrays.toString(A.union(B).set));
     }
 }
