@@ -1,3 +1,5 @@
+// Set class capable of: complement, intersection, union and subtraction. 
+
 import java.util.*;
 
 public class Set {
