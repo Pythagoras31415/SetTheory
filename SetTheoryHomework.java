@@ -63,5 +63,8 @@ class SetTheoryHomework{
         System.out.println(Arrays.toString(A.union(A.complement().intersection(B)).set) + "\n");
         System.out.println("A unión con B");
         System.out.println(Arrays.toString(A.union(B).set));
+        
+        if (A.union(B).set.equals(A.union(A.complement().intersection(B)).set)) System.out.println("Son lo mismo");
+        else System.out.println("Son diferentes");
     }
 }
